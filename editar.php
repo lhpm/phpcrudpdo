@@ -1,17 +1,17 @@
 <?php
 try{
-        // Conexión a la base de datos
+    // Conexión a mysql
     $pdo = new PDO('mysql:host=localhost;dbname=pdo', 'root', '');
     $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
  
-    // Sacar un resultado
+    // Obtener resultado
     $sql = $pdo->prepare('SELECT * FROM clientes');
     $sql->execute(array('id' => '1'));
     $resultado = $sql->fetchAll();
  
     var_dump($resultado[0]);
 
-    // Sacar todos los resultados de la base de datos
+    // Obtener resultados de la base de datos
     $sql = $pdo->prepare('SELECT * FROM clientes WHERE id='.$_GET['id'].' ');
     $sql->execute();
     $resultado = $sql->fetchAll();
@@ -26,7 +26,7 @@ try{
             <form action="editado.php" method="POST">
             <?php
  
-        // Mostrar resultados
+    // Mostrar resultados
     foreach ($resultado as $row) {
 
         print '<input name="id" type="text" value="'.$row["id"].'" readonly>';

@@ -1,7 +1,8 @@
 <?php
 
-    $pdo = new PDO('mysql:host=localhost;dbname=pdo', 'root', '');
-    $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// COnexión a BD
+$pdo = new PDO('mysql:host=localhost;dbname=pdo', 'root', '');
+$pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $sql = "DELETE FROM clientes WHERE id =  :id";
 $stmt = $pdo->prepare($sql);
